@@ -1,0 +1,493 @@
+main { 
+  flex: 1;
+  padding: 2rem 0;
+}
+
+
+.title-section {
+  font-size: 1.5rem;
+  color: #362F4F;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(91, 35, 255, 0.2);
+}
+
+.title-section i {
+  color: #5B23FF;
+}
+
+
+.add-note-section {
+  margin-bottom: 2.5rem;
+}
+
+.note-form {
+  border: 2px solid rgba(91, 35, 255, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+
+.search-section {
+  margin-bottom: 2.5rem;
+}
+
+.search-container {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(0, 139, 255, 0.1);
+}
+
+.search-box-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5B23FF;
+  font-size: 1rem;
+}
+
+.search-box {
+  padding-left: 45px;
+  padding-right: 45px;
+  border: 2px solid #008BFF;
+  font-size: 1rem;
+  height: 50px;
+}
+
+.search-box:focus {
+  border-color: #5B23FF;
+  box-shadow: 0 0 0 3px rgba(91, 35, 255, 0.1);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-search-btn:hover {
+  color: #ff4757;
+  background-color: rgba(255, 71, 87, 0.1);
+}
+
+.search-stats {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.search-stats span {
+  color: #5B23FF;
+  font-weight: 700;
+}
+
+
+.notes-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.notes-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  min-height: 200px;
+}
+
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px dashed rgba(91, 35, 255, 0.2);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: rgba(91, 35, 255, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+  color: #362F4F;
+  margin-bottom: 0.75rem;
+}
+
+.empty-state p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.note-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #5B23FF;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-left-color: #E4FF30;
+}
+
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5B23FF, #008BFF);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.note-card:hover::before {
+  opacity: 1;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.note-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #362F4F;
+  margin: 0;
+  flex: 1;
+  word-break: break-word;
+}
+
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.note-action-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.note-action-btn.edit:hover {
+  color: #008BFF;
+  background-color: rgba(0, 139, 255, 0.1);
+}
+
+.note-action-btn.delete:hover {
+  color: #ff4757;
+  background-color: rgba(255, 71, 87, 0.1);
+}
+
+.note-content {
+  color: #555;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  word-break: break-word;
+}
+
+.note-content.expandable {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.note-content.expandable::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, white);
+  pointer-events: none;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+}
+
+.note-date {
+  color: #777;
+  white-space: nowrap;
+}
+
+.note-char-count {
+  color: #5B23FF;
+  font-weight: 600;
+}
+
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: #008BFF;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.expand-btn:hover {
+  background-color: rgba(0, 139, 255, 0.1);
+}
+
+
+footer {
+  background: linear-gradient(135deg, #362F4F 0%, #2a2640 100%);
+  color: white;
+  padding: 3rem 0 2rem;
+  margin-top: auto;
+  border-top: 3px solid #5B23FF;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-info h3 {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-info h3 i {
+  color: #E4FF30;
+}
+
+.footer-info p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 400px;
+}
+
+.footer-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.stat-item i {
+  color: #E4FF30;
+  font-size: 1.2rem;
+}
+
+.stat-item span {
+  font-weight: 700;
+  color: white;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer-copyright p {
+  margin-bottom: 0.5rem;
+}
+
+.color-palette-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title-section {
+    font-size: 1.3rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .notes-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .notes-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+  }
+  
+  .footer-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.25rem;
+  }
+  
+  .search-box-wrapper {
+    margin-bottom: 0.75rem;
+  }
+  
+  .empty-state {
+    padding: 2rem 1rem;
+  }
+  
+  .empty-icon {
+    font-size: 3rem;
+  }
+  
+  .note-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .note-actions {
+    align-self: flex-end;
+  }
+}
+
